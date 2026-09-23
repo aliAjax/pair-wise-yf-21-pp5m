@@ -18,7 +18,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -165,12 +167,311 @@ label span {
   font-size: 13px;
 }
 
-input {
+input,
+select,
+textarea {
   width: 100%;
   min-height: 42px;
   border-radius: 7px;
   border: 1px solid var(--border);
   padding: 0 12px;
+  background: #ffffff;
+}
+
+textarea {
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.chip-active {
+  background: var(--primary) !important;
+  color: #ffffff;
+  border-color: var(--primary) !important;
+}
+
+.aside-subtitle {
+  margin-top: 22px;
+}
+
+.archive-list {
+  display: grid;
+  gap: 10px;
+}
+
+.archive-item {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  padding: 12px 14px;
+  text-align: left;
+  height: auto;
+}
+
+.archive-item b {
+  font-size: 15px;
+}
+
+.archive-item span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.archive-active {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 7%, #ffffff);
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.badge-ok {
+  background: color-mix(in srgb, var(--accent) 14%, #ffffff);
+  color: var(--accent);
+}
+
+.badge-warn {
+  background: color-mix(in srgb, var(--secondary) 16%, #ffffff);
+  color: var(--secondary);
+}
+
+.badge-muted {
+  background: #eef2f7;
+  color: #64748b;
+}
+
+.console-panel h3 {
+  margin: 22px 0 12px;
+}
+
+.acceptance-info {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.acceptance-info strong {
+  color: var(--primary);
+}
+
+.readonly-grid > div {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.readonly-grid span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 8px;
+}
+
+.pattern-map {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fdf8f3;
+  margin-bottom: 12px;
+}
+
+.rug-body {
+  fill: #f5ead9;
+  stroke: var(--primary);
+  stroke-width: 1.2;
+}
+
+.rug-border {
+  fill: none;
+  stroke: var(--secondary);
+  stroke-width: 0.8;
+  stroke-dasharray: 2 1.4;
+}
+
+.rug-medallion {
+  fill: color-mix(in srgb, var(--accent) 16%, #ffffff);
+  stroke: var(--accent);
+  stroke-width: 0.8;
+}
+
+.rug-medallion-inner {
+  fill: color-mix(in srgb, var(--primary) 18%, #ffffff);
+  stroke: var(--primary);
+  stroke-width: 0.6;
+}
+
+.zone-marker {
+  cursor: pointer;
+}
+
+.zone-pulse {
+  fill: color-mix(in srgb, var(--secondary) 26%, transparent);
+  stroke: var(--secondary);
+  stroke-width: 0.5;
+}
+
+.zone-dot {
+  fill: var(--secondary);
+}
+
+.zone-marker.active .zone-pulse {
+  fill: color-mix(in srgb, var(--primary) 36%, transparent);
+  stroke: var(--primary);
+}
+
+.zone-marker.active .zone-dot {
+  fill: var(--primary);
+}
+
+.zone-label {
+  font-size: 4.2px;
+  fill: #526071;
+  text-anchor: middle;
+}
+
+.swatches {
+  display: grid;
+  gap: 8px;
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.swatch i {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.rework-form {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.rework-form h3 {
+  margin-top: 0;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+.alert {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, #b91c1c 40%, var(--border));
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.notice {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, #ffffff);
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.steps {
+  display: grid;
+  gap: 10px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.step > b {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.step-pending > b {
+  background: #94a3b8;
+}
+
+.step-rework {
+  border-color: color-mix(in srgb, var(--secondary) 55%, var(--border));
+  background: color-mix(in srgb, var(--secondary) 6%, #ffffff);
+}
+
+.step-body h4 {
+  margin: 0 0 4px;
+}
+
+.step-body p {
+  margin: 2px 0;
+  color: #526071;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.reaccept-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px dashed color-mix(in srgb, var(--primary) 40%, var(--border));
+  border-radius: 8px;
+}
+
+.reaccept-bar span {
+  color: #526071;
+  font-size: 13px;
+}
+
+.reaccept-bar .primary {
+  padding: 0 16px;
 }
 
 .records {
@@ -211,8 +512,13 @@ input {
 @media (max-width: 860px) {
   .metrics,
   .workspace,
-  .field-grid {
+  .field-grid,
+  .console-grid {
     grid-template-columns: 1fr;
+  }
+
+  .acceptance-info {
+    justify-items: start;
   }
 
   .hero {
