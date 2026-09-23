@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -165,12 +166,19 @@ label span {
   font-size: 13px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border-radius: 7px;
   border: 1px solid var(--border);
   padding: 0 12px;
+  background: #ffffff;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .records {
@@ -211,7 +219,8 @@ input {
 @media (max-width: 860px) {
   .metrics,
   .workspace,
-  .field-grid {
+  .field-grid,
+  .detail-columns {
     grid-template-columns: 1fr;
   }
 
@@ -219,4 +228,297 @@ input {
     min-height: 210px;
     padding: 24px;
   }
+}
+
+/* ===== 返修与二次验收台 ===== */
+
+.chip.active {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 18%, #ffffff);
+  font-weight: 700;
+}
+
+.aside-subtitle {
+  margin: 22px 0 12px;
+}
+
+.archive-list {
+  display: grid;
+  gap: 8px;
+}
+
+.archive-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 0;
+  padding: 10px 12px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.archive-item b {
+  font-size: 13px;
+  color: var(--primary);
+}
+
+.archive-item span {
+  flex: 1;
+  font-size: 13px;
+  color: #526071;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.archive-item.active {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, #ffffff);
+}
+
+.badge {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-rework {
+  color: #ffffff;
+  background: var(--secondary);
+}
+
+.status-已归档 {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.status-返修中 {
+  background: color-mix(in srgb, var(--secondary) 22%, #ffffff);
+  color: var(--secondary);
+}
+
+.status-二次验收完成 {
+  background: color-mix(in srgb, var(--accent) 18%, #ffffff);
+  color: var(--accent);
+}
+
+.status-已验收 {
+  background: color-mix(in srgb, var(--primary) 14%, #ffffff);
+  color: var(--primary);
+}
+
+.status-修复中 {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.heading h2 .badge {
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.info-grid div {
+  display: grid;
+  gap: 4px;
+}
+
+.info-grid small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.info-grid span {
+  font-weight: 600;
+}
+
+.detail-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.detail-columns h3 {
+  margin: 18px 0 10px;
+}
+
+.pattern-map {
+  position: relative;
+  height: 220px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background:
+    repeating-linear-gradient(45deg, rgba(124, 45, 18, 0.1) 0 10px, transparent 10px 20px),
+    repeating-linear-gradient(-45deg, rgba(15, 118, 110, 0.1) 0 10px, transparent 10px 20px),
+    #fdf7f0;
+  overflow: hidden;
+}
+
+.marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--primary);
+  box-shadow: 0 4px 10px rgba(124, 45, 18, 0.35);
+  white-space: nowrap;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fbfdff;
+  font-size: 13px;
+}
+
+.swatch i {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.swatch em {
+  font-style: normal;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.steps li.done b {
+  background: linear-gradient(135deg, var(--accent), #14b8a6);
+}
+
+.steps li.pending {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--secondary) 6%, #ffffff);
+}
+
+.steps li b {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 12px;
+  background: #94a3b8;
+}
+
+.steps li span {
+  flex: 1;
+  font-weight: 600;
+}
+
+.steps li em {
+  font-style: normal;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.reworks {
+  display: grid;
+  gap: 8px;
+}
+
+.reworks article {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.reworks article b {
+  color: var(--primary);
+  font-size: 13px;
+}
+
+.reworks article p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.reworks article small {
+  color: #94a3b8;
+}
+
+.rework-form {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border);
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.message {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.message.error {
+  color: #b91c1c;
+}
+
+.message.ok {
+  color: var(--accent);
+}
+
+.empty {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
 }
